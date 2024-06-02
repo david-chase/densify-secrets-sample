@@ -11,6 +11,7 @@ https://secrets-store-csi-driver.sigs.k8s.io/concepts.html#provider-for-the-secr
 You will need to encode your forwarder user name and password (or epassword) in Base64 to proceed.  To do so, from a shell type:
 
   echo -n 'insert username' | base64
+  
   echo -n 'insert password' | base64
 
 Now edit densify-credentials.yaml and paste in your encoded credentials.  Deploy the secret the same way you would any other YAML file:
