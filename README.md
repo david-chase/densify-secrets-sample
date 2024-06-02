@@ -10,7 +10,8 @@ https://secrets-store-csi-driver.sigs.k8s.io/concepts.html#provider-for-the-secr
 
 You will need to encode your forwarder user name and password (or epassword) in Base64 to proceed.  To do so, from a shell type:
 
-  echo -n '<my string>' | base64
+  echo -n 'insert username' | base64
+  echo -n 'insert password' | base64
 
 Now edit densify-credentials.yaml and paste in your encoded credentials.  Deploy the secret the same way you would any other YAML file:
 
@@ -25,5 +26,7 @@ Notice that the sample configmap has the credentials commented out as they're no
 ## Step 3 - Deploy the pod
 
   kubectl apply -f pod.yaml
+
+Have a look at the changes to pod.yaml and cronjob.yaml to see how the secrets are being used.  The customer will need to make similar changes to their YAML files before deploying the forwarder.  Keep in mind that these examples were made to use with a DaaS instance where you're using a password for the forwarder, not an epassword.  When using an epassword simply modify the pod.yaml and cronjob.yaml to change DENSIFY_PASSWORD to DENSIFY_EPASSWORD.
 
 Have fun!
